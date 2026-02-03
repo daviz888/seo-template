@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Admin Panel</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header" style="justify-content: center; gap: 10px;">
+        <img src="assets/images/logo.png" alt="SEO Logo" style="height: 32px;">
+        <span class="logo-text">SEO</span>
+        <button class="close-sidebar" id="closeSidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link active">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-link" onclick="toggleSubmenu('records-sub')">
+            <i class="fas fa-database"></i>
+            <span class="nav-text">Records</span>
+            <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+          </div>
+          <div class="submenu" id="records-sub">
+            <a href="#" class="submenu-link">User Records</a>
+            <a href="#" class="submenu-link">System Logs</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-link" onclick="toggleSubmenu('trans-sub')">
+            <i class="fas fa-exchange-alt"></i>
+            <span class="nav-text">Transactions</span>
+            <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+          </div>
+          <div class="submenu" id="trans-sub">
+            <a href="#" class="submenu-link">Recent Payments</a>
+            <a href="#" class="submenu-link">Invoices</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-link" onclick="toggleSubmenu('maint-sub')">
+            <i class="fas fa-tools"></i>
+            <span class="nav-text">Maintenance</span>
+            <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+          </div>
+          <div class="submenu" id="maint-sub">
+            <a href="#" class="submenu-link">Database Tools</a>
+            <a href="#" class="submenu-link">Settings</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="toggle-btn" id="toggleBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search anything...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="user-menu-container">
+            <div class="user-profile" id="userProfile">
+              <div class="text-right d-none d-md-block" style="margin-right: 12px; font-size: 0.9rem;">
+                <p style="font-weight: 600; line-height: 1;">Jane Doe</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem;">Super Admin</p>
+              </div>
+              <img src="assets/images/avatar.png" alt="Profile" class="user-img">
+              <i class="fas fa-chevron-down profile-arrow"></i>
+            </div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-header">
+                <p>Jane Doe</p>
+                <span>jane.doe@example.com</span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-user-cog"></i>
+                <span>Profile Settings</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-key"></i>
+                <span>Change Password</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item logout-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <main class="content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+          <div>
+            <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">SEO Dashboard Overview</h1>
+            <p style="color: var(--text-muted);">Track your rankings and search traffic performance.</p>
+          </div>
+          <button
+            style="padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+            Download Report
+          </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <div
+                style="width: 48px; height: 48px; background: #eef2ff; color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+              </div>
+              <span style="color: #22c55e; font-weight: 600; font-size: 0.85rem;">+12.5%</span>
+            </div>
+            <h3 style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Total Users</h3>
+            <p style="font-size: 1.5rem; font-weight: 700;">24,512</p>
+          </div>
+
+          <div class="stat-card">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <div
+                style="width: 48px; height: 48px; background: #fff7ed; color: #f97316; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-chart-line" style="font-size: 1.2rem;"></i>
+              </div>
+              <span style="color: #22c55e; font-weight: 600; font-size: 0.85rem;">+8.2%</span>
+            </div>
+            <h3 style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Total Sales</h3>
+            <p style="font-size: 1.5rem; font-weight: 700;">$54,230</p>
+          </div>
+
+          <div class="stat-card">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <div
+                style="width: 48px; height: 48px; background: #f0fdf4; color: #22c55e; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-clock" style="font-size: 1.2rem;"></i>
+              </div>
+              <span style="color: #ef4444; font-weight: 600; font-size: 0.85rem;">-2.4%</span>
+            </div>
+            <h3 style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Avg. Session</h3>
+            <p style="font-size: 1.5rem; font-weight: 700;">4.2m</p>
+          </div>
+        </div>
+
+        <!-- Main Section -->
+        <div
+          style="background: var(--bg-card); border-radius: 16px; box-shadow: var(--shadow); padding: 0; overflow: hidden; position: relative; min-height: 300px;">
+          <img src="assets/images/dash_bg.png" alt="Illustration"
+            style="position: absolute; right: 0; top: 0; height: 100%; width: 40%; object-fit: cover; opacity: 0.8;">
+          <div style="padding: 40px; position: relative; z-index: 10; width: 60%;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">System Health Overview</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Your system is currently performing optimally. All
+              nodes are connected and responsive. No critical errors detected in the last 24 hours.</p>
+            <div style="display: flex; gap: 12px;">
+              <button
+                style="padding: 10px 24px; border: 1.5px solid var(--border); border-radius: 8px; font-weight: 600; cursor: pointer; background: white;">View
+                Details</button>
+              <button
+                style="padding: 10px 24px; background: #0f172a; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Generate
+                Audit</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const isMobile = () => window.innerWidth <= 1024;
+
+    toggleBtn.addEventListener('click', () => {
+      if (isMobile()) {
+        sidebar.classList.add('mobile-open');
+      } else {
+        sidebar.classList.toggle('collapsed');
+      }
+    });
+
+    const closeSidebar = document.getElementById('closeSidebar');
+    closeSidebar.addEventListener('click', () => {
+      sidebar.classList.remove('mobile-open');
+    });
+
+    function toggleSubmenu(id) {
+      const submenu = document.getElementById(id);
+      const parent = submenu.previousElementSibling;
+      const icon = parent.querySelector('.fa-chevron-down');
+
+      // Expand sidebar if it's collapsed
+      if (sidebar.classList.contains('collapsed')) {
+        sidebar.classList.remove('collapsed');
+      }
+
+      submenu.classList.toggle('open');
+
+      if (submenu.classList.contains('open')) {
+        icon.style.transform = 'rotate(180deg)';
+        icon.style.transition = '0.3s';
+      } else {
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        sidebar.classList.remove('mobile-open');
+      }
+    });
+
+    // Profile Dropdown Toggle
+    const userProfile = document.getElementById('userProfile');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    userProfile.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
+        profileDropdown.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+
+</html>

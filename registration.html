@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - SAES Education Outreach</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="registration-page">
+
+    <div class="registration-container">
+        <div class="registration-card">
+            <div class="registration-header">
+                <h1 class="registration-title">Online Course Registration</h1>
+                <p class="registration-subtitle">SAES Education Outreach Management System</p>
+            </div>
+
+            <form class="registration-form" id="registrationForm">
+                <!-- Employee / Sponsor Information -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fas fa-id-card"></i> Employee Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="empLastName">Last Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user-tag"></i>
+                                <input type="text" id="empLastName" placeholder="Employee Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="empFirstName">First Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="empFirstName" placeholder="Employee First Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="empMiddleName">Middle Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user-circle"></i>
+                                <input type="text" id="empMiddleName" placeholder="Middle Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="badgeNumber">Badge Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-id-badge"></i>
+                                <input type="text" id="badgeNumber" placeholder="Enter Badge Number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="workPhone">Work Phone</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-briefcase"></i>
+                                <input type="tel" id="workPhone" placeholder="Enter Work Phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-mobile-alt"></i>
+                                <input type="tel" id="mobile" placeholder="Enter Mobile Number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="Enter Email Address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Area / Location</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <select id="area" required>
+                                    <option value="" disabled selected>Select Area</option>
+                                    <option value="Abqaiq">Abqaiq</option>
+                                    <option value="Dhahran">Dhahran</option>
+                                    <option value="Ras Tanura">Ras Tanura</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conditional Dependent Toggle -->
+                <div class="form-section checkbox-section">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="isDependent">
+                        <span class="checkmark"></span>
+                        Check if registering for a dependent
+                    </label>
+                </div>
+
+                <!-- Dependent Information (Hidden by default) -->
+                <div id="dependentFields" class="form-section dependent-fields">
+                    <h3 class="section-title"><i class="fas fa-child"></i> Dependent Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="studentLastName">Student Last Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="studentLastName" placeholder="Student Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentFirstName">Student First Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="studentFirstName" placeholder="Student First Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentAge">Age</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="studentAge" placeholder="Enter Age">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentEmail">Student Email</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="studentEmail" placeholder="Enter Student Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="relation">Relation to Employee</label>
+                            <div class="input-wrapper">
+                                <select id="relation">
+                                    <option value="" disabled selected>Select Relation</option>
+                                    <option value="child">Child</option>
+                                    <option value="spouse">Spouse</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseID">Course ID</label>
+                            <div class="input-wrapper">
+                                <select id="courseID">
+                                    <option value="" disabled selected>Select Course</option>
+                                    <option value="SEO-101">SEO-101: SEO Intro</option>
+                                    <option value="KW-202">KW-202: Keyword Research</option>
+                                    <option value="ONP-303">ONP-303: On-Page Strategy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="session">Session</label>
+                            <div class="input-wrapper">
+                                <select id="session">
+                                    <option value="" disabled selected>Select Session</option>
+                                    <option value="Winter 2026">Winter 2026</option>
+                                    <option value="Spring 2026">Spring 2026</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-section checkbox-section terms-section">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="termsAccepted" required>
+                        <span class="checkmark"></span>
+                        I accept the SEO terms and conditions and authorize the deduction of all class fees from the
+                        payroll check.
+                    </label>
+                </div>
+
+                <div class="registration-actions">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='index.html'">Cancel</button>
+                    <button type="submit" class="btn-submit">Register Now <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </form>
+
+            <div class="registration-footer">
+                <p>&copy; 2026 Saudi Aramco Expatriates Schools</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const isDependentCheckbox = document.getElementById('isDependent');
+        const dependentFields = document.getElementById('dependentFields');
+        const depInputs = dependentFields.querySelectorAll('input, select');
+
+        isDependentCheckbox.addEventListener('change', () => {
+            if (isDependentCheckbox.checked) {
+                dependentFields.classList.add('show');
+                depInputs.forEach(input => input.setAttribute('required', ''));
+            } else {
+                dependentFields.classList.remove('show');
+                depInputs.forEach(input => input.removeAttribute('required'));
+            }
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Registration submitted successfully!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

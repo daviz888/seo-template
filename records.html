@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Records - SAES Education Outreach</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header" style="justify-content: center; gap: 10px;">
+                <img src="assets/images/logo.png" alt="SEO Logo" style="height: 32px;">
+                <span class="logo-text">SEO</span>
+                <button class="close-sidebar" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link active" onclick="toggleSubmenu('records-sub')">
+                        <i class="fas fa-database"></i>
+                        <span class="nav-text">Records</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu open" id="records-sub">
+                        <a href="records.html" class="submenu-link active">Registration List</a>
+                        <a href="#" class="submenu-link">User Records</a>
+                        <a href="#" class="submenu-link">System Logs</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('trans-sub')">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="nav-text">Transactions</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="trans-sub">
+                        <a href="registration.html" class="submenu-link">Course Registration</a>
+                        <a href="#" class="submenu-link">Recent Payments</a>
+                        <a href="#" class="submenu-link">Invoices</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('maint-sub')">
+                        <i class="fas fa-tools"></i>
+                        <span class="nav-text">Maintenance</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="maint-sub">
+                        <a href="#" class="submenu-link">Database Tools</a>
+                        <a href="#" class="submenu-link">Settings</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="toggle-btn" id="toggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search anything...">
+                    </div>
+                    <div class="user-menu-container">
+                        <div class="user-profile" id="userProfile">
+                            <div class="text-right d-none d-md-block" style="margin-right: 12px; font-size: 0.9rem;">
+                                <p style="font-weight: 600; line-height: 1;">Jane Doe</p>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">Super Admin</p>
+                            </div>
+                            <img src="assets/images/avatar.png" alt="Profile" class="user-img">
+                            <i class="fas fa-chevron-down profile-arrow"></i>
+                        </div>
+
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <div class="dropdown-header">
+                                <p>Jane Doe</p>
+                                <span>jane.doe@example.com</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Profile Settings</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-key"></i>
+                                <span>Change Password</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item logout-link">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+                    <div>
+                        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">Registration Records</h1>
+                        <p style="color: var(--text-muted);">View and manage all participant registrations</p>
+                    </div>
+                    <div class="session-badge">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Current Session: <strong>Winter 2026</strong></span>
+                    </div>
+                </div>
+
+                <!-- Filters Bar -->
+                <div class="card-section" style="margin-bottom: 24px;">
+                    <div class="filter-bar">
+                        <div class="filter-group-wrapper" style="display: flex; flex: 1; flex-wrap: wrap; gap: 20px;">
+                            <div class="filter-group">
+                                <label>Search Records</label>
+                                <div class="input-wrapper" style="position: relative;">
+                                    <i class="fas fa-search"
+                                        style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                                    <input type="text" id="recordSearch" class="filter-select"
+                                        placeholder="Search name, sponsor, ID..."
+                                        style="padding-left: 40px !important;">
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Status</label>
+                                <select class="filter-select" id="statusFilter">
+                                    <option value="all">All Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="approved">Approved</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Area</label>
+                                <select class="filter-select" id="areaFilter">
+                                    <option value="all">All Areas</option>
+                                    <option value="Abqaiq">Abqaiq</option>
+                                    <option value="Dhahran">Dhahran</option>
+                                    <option value="Ras Tanura">Ras Tanura</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn-process" style="padding: 10px 20px;"
+                                onclick="window.location.href='registration.html'"><i class="fas fa-plus"></i> New
+                                Request</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Records Table -->
+                <div class="card-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Registration List</h2>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn-outline"><i class="fas fa-file-export"></i> Export CSV</button>
+                            <button class="btn-process" style="padding: 10px 20px;"
+                                onclick="window.location.href='registration.html'"><i class="fas fa-plus"></i> New
+                                Request</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Date</th>
+                                    <th>Student Name</th>
+                                    <th>Sponsor / Employee</th>
+                                    <th>Course ID</th>
+                                    <th>Area</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="text-muted">#REG-001</span></td>
+                                    <td>Feb 01, 2026</td>
+                                    <td class="text-bold">Alice Thompson</td>
+                                    <td>John Thompson (88231)</td>
+                                    <td><span class="badge code">SEO-101</span></td>
+                                    <td>Dhahran</td>
+                                    <td><span class="badge status-pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon approve" title="Approve"><i
+                                                    class="fas fa-check"></i></button>
+                                            <button class="btn-icon reject" title="Reject"><i
+                                                    class="fas fa-times"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-muted">#REG-002</span></td>
+                                    <td>Feb 01, 2026</td>
+                                    <td class="text-bold">Robert Wilson</td>
+                                    <td>Mary Wilson (12944)</td>
+                                    <td><span class="badge code">KW-202</span></td>
+                                    <td>Abqaiq</td>
+                                    <td><span class="badge status-approved">Approved</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-muted">#REG-003</span></td>
+                                    <td>Jan 31, 2026</td>
+                                    <td class="text-bold">Sarah Jenkins</td>
+                                    <td>David Jenkins (55210)</td>
+                                    <td><span class="badge code">ONP-303</span></td>
+                                    <td>Ras Tanura</td>
+                                    <td><span class="badge status-pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon approve" title="Approve"><i
+                                                    class="fas fa-check"></i></button>
+                                            <button class="btn-icon reject" title="Reject"><i
+                                                    class="fas fa-times"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-muted">#REG-004</span></td>
+                                    <td>Jan 30, 2026</td>
+                                    <td class="text-bold">Michael Chen</td>
+                                    <td>Li Chen (33412)</td>
+                                    <td><span class="badge code">LNK-404</span></td>
+                                    <td>Dhahran</td>
+                                    <td><span class="badge status-rejected">Rejected</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Re-evaluate"><i
+                                                    class="fas fa-redo"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text-muted">#REG-005</span></td>
+                                    <td>Jan 30, 2026</td>
+                                    <td class="text-bold">Emma Davis</td>
+                                    <td>Mark Davis (99003)</td>
+                                    <td><span class="badge code">ANL-505</span></td>
+                                    <td>Abqaiq</td>
+                                    <td><span class="badge status-approved">Approved</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <p class="text-muted">Showing 5 of 24 records</p>
+                        <div class="pagination">
+                            <button class="btn-icon" disabled><i class="fas fa-chevron-left"></i></button>
+                            <span class="page-number active">1</span>
+                            <span class="page-number">2</span>
+                            <span class="page-number">3</span>
+                            <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="app-footer">
+                    <p>Saudi Aramco Expatriates Schools Education Outreach</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const isMobile = () => window.innerWidth <= 1024;
+
+        toggleBtn.addEventListener('click', () => {
+            if (isMobile()) {
+                sidebar.classList.add('mobile-open');
+            } else {
+                sidebar.classList.toggle('collapsed');
+            }
+        });
+
+        const closeSidebar = document.getElementById('closeSidebar');
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('mobile-open');
+        });
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const parent = submenu.previousElementSibling;
+            const icon = parent.querySelector('.fa-chevron-down');
+
+            // Expand sidebar if it's collapsed
+            if (sidebar.classList.contains('collapsed')) {
+                sidebar.classList.remove('collapsed');
+            }
+
+            submenu.classList.toggle('open');
+
+            if (submenu.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+                icon.style.transition = '0.3s';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (!isMobile()) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+
+        // Profile Dropdown Toggle
+        const userProfile = document.getElementById('userProfile');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        userProfile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!userProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('show');
+            }
+        });
+
+        // Go to Top Button Logic
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        // Table Search & Filter Logic
+        const recordSearch = document.getElementById('recordSearch');
+        const statusFilter = document.getElementById('statusFilter');
+        const areaFilter = document.getElementById('areaFilter');
+        const tableRows = document.querySelectorAll('.data-table tbody tr');
+
+        function filterTable() {
+            const searchTerm = recordSearch.value.toLowerCase();
+            const statusTerm = statusFilter.value.toLowerCase();
+            const areaTerm = areaFilter.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const statusBadge = row.querySelector('.badge.status-pending, .badge.status-approved, .badge.status-rejected');
+                const rowStatus = statusBadge ? (statusBadge.innerText.toLowerCase()) : '';
+                const rowArea = row.cells[5].innerText.toLowerCase();
+
+                const matchesSearch = text.includes(searchTerm);
+                const matchesStatus = statusTerm === 'all' || rowStatus === statusTerm;
+                const matchesArea = areaTerm === 'all' || rowArea === areaTerm;
+
+                if (matchesSearch && matchesStatus && matchesArea) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        recordSearch.addEventListener('input', filterTable);
+        statusFilter.addEventListener('change', filterTable);
+        areaFilter.addEventListener('change', filterTable);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management - SAES Education Outreach</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header" style="justify-content: center; gap: 10px;">
+                <img src="assets/images/logo.png" alt="SEO Logo" style="height: 32px;">
+                <span class="logo-text">SEO</span>
+                <button class="close-sidebar" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('records-sub')">
+                        <i class="fas fa-database"></i>
+                        <span class="nav-text">Records</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="records-sub">
+                        <a href="records.html" class="submenu-link">Registration List</a>
+                        <a href="#" class="submenu-link">User Records</a>
+                        <a href="#" class="submenu-link">System Logs</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('trans-sub')">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="nav-text">Transactions</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="trans-sub">
+                        <a href="registration.html" class="submenu-link">Course Registration</a>
+                        <a href="#" class="submenu-link">Recent Payments</a>
+                        <a href="#" class="submenu-link">Invoices</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link active" onclick="toggleSubmenu('maint-sub')">
+                        <i class="fas fa-tools"></i>
+                        <span class="nav-text">Maintenance</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu open" id="maint-sub">
+                        <a href="courses.html" class="submenu-link active">Course Management</a>
+                        <a href="instructors.html" class="submenu-link">Instructors</a>
+                        <a href="sponsors.html" class="submenu-link">Sponsors</a>
+                        <a href="sessions.html" class="submenu-link">Sessions</a>
+                        <a href="locations.html" class="submenu-link">Locations</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="toggle-btn" id="toggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search courses...">
+                    </div>
+                    <div class="user-menu-container">
+                        <div class="user-profile" id="userProfile">
+                            <div class="text-right d-none d-md-block" style="margin-right: 12px; font-size: 0.9rem;">
+                                <p style="font-weight: 600; line-height: 1;">Jane Doe</p>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">Super Admin</p>
+                            </div>
+                            <img src="assets/images/avatar.png" alt="Profile" class="user-img">
+                            <i class="fas fa-chevron-down profile-arrow"></i>
+                        </div>
+
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <div class="dropdown-header">
+                                <p>Jane Doe</p>
+                                <span>jane.doe@example.com</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item logout-link">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+                    <div>
+                        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">Course Management</h1>
+                        <p style="color: var(--text-muted);">Manage and monitor all educational offerings</p>
+                    </div>
+                    <button class="btn-process" style="padding: 10px 24px;"><i class="fas fa-plus"></i> Add New
+                        Course</button>
+                </div>
+
+                <!-- Courses Table -->
+                <div class="card-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Course Inventory</h2>
+                        <div style="display: flex; gap: 10px;">
+                            <select class="filter-select" style="min-width: 150px;">
+                                <option value="all">All Categories</option>
+                                <option value="seo">SEO</option>
+                                <option value="tech">Technology</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="badge code text-bold">SEO-101</span></td>
+                                    <td class="text-bold">Introduction to Search Engine Optimization</td>
+                                    <td>Digital Marketing</td>
+                                    <td><span class="badge status-approved">Active</span></td>
+                                    <td>Jan 12, 2026</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon reject" title="Deactivate"><i
+                                                    class="fas fa-ban"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge code text-bold">KW-202</span></td>
+                                    <td class="text-bold">Advanced Keyword Research & Analysis</td>
+                                    <td>Digital Marketing</td>
+                                    <td><span class="badge status-approved">Active</span></td>
+                                    <td>Jan 15, 2026</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon reject" title="Deactivate"><i
+                                                    class="fas fa-ban"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <footer class="app-footer">
+                    <p>Saudi Aramco Expatriates Schools Education Outreach</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const isMobile = () => window.innerWidth <= 1024;
+
+        toggleBtn.addEventListener('click', () => {
+            if (isMobile()) {
+                sidebar.classList.add('mobile-open');
+            } else {
+                sidebar.classList.toggle('collapsed');
+            }
+        });
+
+        const closeSidebar = document.getElementById('closeSidebar');
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('mobile-open');
+        });
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const parent = submenu.previousElementSibling;
+            const icon = parent.querySelector('.fa-chevron-down');
+
+            if (sidebar.classList.contains('collapsed')) {
+                sidebar.classList.remove('collapsed');
+            }
+
+            submenu.classList.toggle('open');
+
+            if (submenu.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+                icon.style.transition = '0.3s';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        const userProfile = document.getElementById('userProfile');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        userProfile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!userProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>

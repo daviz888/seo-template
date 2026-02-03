@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Management - SAES Education Outreach</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header" style="justify-content: center; gap: 10px;">
+                <img src="assets/images/logo.png" alt="SEO Logo" style="height: 32px;">
+                <span class="logo-text">SEO</span>
+                <button class="close-sidebar" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('records-sub')">
+                        <i class="fas fa-database"></i>
+                        <span class="nav-text">Records</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="records-sub">
+                        <a href="records.html" class="submenu-link">Registration List</a>
+                        <a href="#" class="submenu-link">User Records</a>
+                        <a href="#" class="submenu-link">System Logs</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link" onclick="toggleSubmenu('trans-sub')">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="nav-text">Transactions</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu" id="trans-sub">
+                        <a href="registration.html" class="submenu-link">Course Registration</a>
+                        <a href="#" class="submenu-link">Recent Payments</a>
+                        <a href="#" class="submenu-link">Invoices</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-link active" onclick="toggleSubmenu('maint-sub')">
+                        <i class="fas fa-tools"></i>
+                        <span class="nav-text">Maintenance</span>
+                        <i class="fas fa-chevron-down ml-auto" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                    </div>
+                    <div class="submenu open" id="maint-sub">
+                        <a href="courses.html" class="submenu-link">Course Management</a>
+                        <a href="instructors.html" class="submenu-link">Instructors</a>
+                        <a href="sponsors.html" class="submenu-link">Sponsors</a>
+                        <a href="sessions.html" class="submenu-link">Sessions</a>
+                        <a href="locations.html" class="submenu-link active">Locations</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="header">
+                <div class="header-left">
+                    <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </header>
+
+            <main class="content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+                    <div>
+                        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">Location Management</h1>
+                        <p style="color: var(--text-muted);">Manage training centers and facilities</p>
+                    </div>
+                    <button class="btn-process" style="padding: 10px 24px;"><i class="fas fa-map-marked-alt"></i> Add
+                        Location</button>
+                </div>
+
+                <div class="card-section">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Location Name</th>
+                                    <th>Area</th>
+                                    <th>Capacity</th>
+                                    <th>Room / Facility</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-bold">Dhahran Central Hub</td>
+                                    <td>Dhahran</td>
+                                    <td>50</td>
+                                    <td>Room 102 (Tech Center)</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-bold">Abqaiq Learning Lab</td>
+                                    <td>Abqaiq</td>
+                                    <td>25</td>
+                                    <td>Lab A</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('collapsed'));
+        function toggleSubmenu(id) { document.getElementById(id).classList.toggle('open'); }
+    </script>
+</body>
+
+</html>

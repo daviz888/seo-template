@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Launcher Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <style>
+    .slide {
+      transition: opacity 0.8s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+        <header class="header header-inner">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="launcher.html" class="logo">
+                <img src="assets/images/logo.png" alt="SEO Logo">
+                <span>SAES Education Outreach</span>
+            </a>
+            <!-- Desktop Navs -->
+            <nav class="nav-links desktop-nav">
+                <a href="#about" class="nav-link">About Mission</a>
+                <a href="#courses" class="nav-link">Course Catalog</a>
+                <a href="#benefits" class="nav-link">Learner Benefits</a>
+                <a href="login.html" class="btn-login">Admin Login</a>
+            </nav>
+
+            <!-- Hamburger -->
+             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+             <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#about">About Mission</a>
+                <a href="#courses">Course Catalog</a>
+                <a href="#benefits">Learner Benefits</a>
+                <a href="login.html" class="mobile-login">Admin Login</a>
+            </div>
+    </header>
+
+  <!-- HERO CAROUSEL -->
+  <section class="relative h-screen overflow-hidden">
+
+    <div id="carousel" class="relative h-full w-full">
+
+      <!-- SLIDE 1 -->
+      <div class="slide absolute inset-0 opacity-100 pointer-events-auto">
+
+        <!-- Image -->
+        <img
+          src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70"
+          class="absolute inset-0 h-full w-full object-cover z-0"
+          alt=""
+        />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 flex h-full items-center justify-center text-center px-6">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+              Launch Your Next Big Idea
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">
+              Build, deploy, and scale faster with a modern platform.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 justify-center shadow-xl">
+                <i class="fa-solid fa-rocket"></i>
+                Get Started
+              </button>
+              <button class="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg flex items-center gap-2 justify-center">
+                <i class="fa-solid fa-circle-play"></i>
+                Watch Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide absolute inset-0 opacity-0 pointer-events-none">
+
+        <img
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984"
+          class="absolute inset-0 h-full w-full object-cover z-0"
+          alt=""
+        />
+
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+        <div class="relative z-20 flex h-full items-center justify-center text-center px-6">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+              Enterprise Performance
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">
+              Secure, reliable, and built for scale.
+            </p>
+
+            <button class="bg-emerald-600 hover:bg-emerald-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 justify-center mx-auto shadow-xl">
+              <i class="fa-solid fa-shield-halved"></i>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide absolute inset-0 opacity-0 pointer-events-none">
+
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          class="absolute inset-0 h-full w-full object-cover z-0"
+          alt=""
+        />
+
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+        <div class="relative z-20 flex h-full items-center justify-center text-center px-6">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+              Built for Teams
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">
+              Collaborate faster with tools your team loves.
+            </p>
+
+            <button class="bg-sky-600 hover:bg-sky-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 justify-center mx-auto shadow-xl">
+              <i class="fa-solid fa-users"></i>
+              Start Free Trial
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+    <button
+      onclick="prevSlide()"
+      class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-4 rounded-full z-30"
+      aria-label="Previous"
+    >
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button
+      onclick="nextSlide()"
+      class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-4 rounded-full z-30"
+      aria-label="Next"
+    >
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('opacity-100', i === index);
+        slide.classList.toggle('opacity-0', i !== index);
+        slide.classList.toggle('pointer-events-auto', i === index);
+        slide.classList.toggle('pointer-events-none', i !== index);
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    // Auto-play
+    setInterval(nextSlide, 7000);
+  </script>
+
+</body>
+</html>

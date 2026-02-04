@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAES Education Outreach - Empowering Community Education</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/herostyle.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header header-inner">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="launcher.html" class="logo">
+                <img src="assets/images/logo.png" alt="SEO Logo">
+                <span>SAES Education Outreach</span>
+            </a>
+            <!-- Desktop Navs -->
+            <nav class="nav-links desktop-nav">
+                <a href="#about" class="nav-link">About Mission</a>
+                <a href="#courses" class="nav-link">Course Catalog</a>
+                <a href="#benefits" class="nav-link">Learner Benefits</a>
+                <a href="login.html" class="btn-login">Admin Login</a>
+            </nav>
+
+            <!-- Hamburger -->
+             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+             <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#about">About Mission</a>
+                <a href="#courses">Course Catalog</a>
+                <a href="#benefits">Learner Benefits</a>
+                <a href="login.html" class="mobile-login">Admin Login</a>
+            </div>
+    </header>
+
+    <!-- Hero Section -->
+<section class="hero">
+  <div id="heroCarousel" class="relative w-full h-[80vh] overflow-hidden">
+
+    <!-- Slide 1 -->
+    <div class="slide active flex items-center justify-center">
+      <img src="assets/images/slider-1.jpg" alt="Slide 1" class="object-cover w-full h-full">
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20 backdrop-blur-sm z-10"></div>
+
+      <!-- Text -->
+      <div class="relative z-20 text-center text-white px-6 max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold opacity-0 animate-fadeIn mb-4">
+          Welcome to Our Platform
+        </h1>
+        <p class="text-lg md:text-xl opacity-0 animate-fadeIn delay-200">
+          Discover solutions designed to elevate your business and empower your growth.
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide flex items-center justify-center">
+      <img src="assets/images/slider-2.jpg" alt="Slide 2" class="object-cover w-full h-full">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20 backdrop-blur-sm z-10"></div>
+
+      <div class="relative z-20 text-center text-white px-6 max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold opacity-0 animate-fadeIn mb-4">
+          Innovative Solutions
+        </h1>
+        <p class="text-lg md:text-xl opacity-0 animate-fadeIn delay-200">
+          Tailored tools and services crafted for modern challenges.
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide flex items-center justify-center">
+      <img src="assets/images/slider-3.jpg" alt="Slide 3" class="object-cover w-full h-full">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20 backdrop-blur-sm z-10"></div>
+
+      <div class="relative z-20 text-center text-white px-6 max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold opacity-0 animate-fadeIn mb-4">
+          Build Your Future
+        </h1>
+        <p class="text-lg md:text-xl opacity-0 animate-fadeIn delay-200">
+          Empowering individuals and teams to achieve more.
+        </p>
+      </div>
+    </div>
+
+    <!-- Left Arrow -->
+    <button id="prevSlide"
+      class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 md:p-4 rounded-full backdrop-blur-md shadow-lg transition z-30">
+      <i class="fa-solid fa-chevron-left text-xl md:text-2xl"></i>
+    </button>
+
+    <!-- Right Arrow -->
+    <button id="nextSlide"
+      class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 md:p-4 rounded-full backdrop-blur-md shadow-lg transition z-30">
+      <i class="fa-solid fa-chevron-right text-xl md:text-2xl"></i>
+    </button>
+
+    <!-- Dots -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
+      <button class="w-3 h-3 bg-white/40 rounded-full dot"></button>
+      <button class="w-3 h-3 bg-white/40 rounded-full dot"></button>
+      <button class="w-3 h-3 bg-white/40 rounded-full dot"></button>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Program Overview -->
+    <section class="section reveal" id="about">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2>Our Mission</h2>
+                <p>We believe that education is the ultimate tool for community empowerment. Our program is designed to
+                    bridge the gap and provide accessible learning for all.</p>
+            </div>
+            <div class="card-grid">
+                <div class="info-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Quality Learning Options</h3>
+                    <p>High-quality, affordable courses offered to Saudi Aramco employees' dependents and community youth.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Community First</h3>
+                    <p>Targeted outreach programs that make a real difference in our local community's development.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Skill Driven</h3>
+                    <p>Focus on high-demand skills that prepare young learners for the challenges of tomorrow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories -->
+    <section class="section reveal" id="courses" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Course Tracks</h2>
+                <p>Choose from a variety of streams designed to ignite curiosity and foster professional growth.</p>
+            </div>
+            <div class="course-grid">
+                <div class="course-item">
+                    <div class="course-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 8px;">Technology & Coding</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">From web development to logic building
+                            and AI fundamentals.</p>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon"><i class="fas fa-palette"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 8px;">Digital Marketing & Design</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Master the art of SEO, social media, and
+                            creative visual design.</p>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon"><i class="fas fa-comments"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 8px;">Communication Skills</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Public speaking, professional writing,
+                            and team collaboration.</p>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 8px;">Life & Career Skills</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Financial literacy, leadership training,
+                            and career guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px; margin-bottom: 40px;">
+                <div style="max-width: 300px;">
+                    <a href="#" class="logo" style="margin-bottom: 24px;">
+                        <img src="assets/images/logo.png" alt="SEO Logo">
+                        <span style="color: white;">SEO</span>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.6);">Empowering the Saudi Aramco community through innovative
+                        education and lifelong learning outreach.</p>
+                </div>
+                <div style="display: flex; gap: 60px; flex-wrap: wrap;">
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-size: 1.1rem;">Quick Links</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 12px;"><a href="#about"
+                                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Mission</a></li>
+                            <li style="margin-bottom: 12px;"><a href="#courses"
+                                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Courses</a></li>
+                            <li style="margin-bottom: 12px;"><a href="registration.html"
+                                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Join Program</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-size: 1.1rem;">Contact</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 12px; color: rgba(255,255,255,0.6);"><i class="fas fa-envelope"
+                                    style="margin-right: 10px;"></i> outreach@saes.edu</li>
+                            <li style="margin-bottom: 12px; color: rgba(255,255,255,0.6);"><i class="fas fa-phone"
+                                    style="margin-right: 10px;"></i> +966 13 87XXXXX</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+                <p>&copy; 2026 Saudi Aramco Expatriates Schools Education Outreach. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.style.display === 'flex';
+
+            mobileMenu.style.display = isOpen ? 'none' : 'flex';
+
+            if (isOpen) {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Safety reset on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                mobileMenu.style.display = 'none';
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Reveal animations on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check
+        revealOnScroll();
+
+        // Back to Top logic
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Carousel
+
+        const slides = document.querySelectorAll('#heroCarousel .slide');
+        const dots = document.querySelectorAll('#heroCarousel .dot');
+        const nextBtn = document.getElementById('nextSlide');
+        const prevBtn = document.getElementById('prevSlide');
+
+        let index = 0;
+
+        function showSlide(i) {
+        slides.forEach((slide, idx) => {
+            slide.classList.toggle("active", idx === i);
+        });
+
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle("bg-white", idx === i);
+            dot.classList.toggle("bg-white/60", idx !== i);
+        });
+        }
+
+        function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+        }
+
+        function prevSlideFunc() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+        }
+
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlideFunc);
+
+        dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+            index = i;
+            showSlide(index);
+        });
+        });
+
+        showSlide(index);
+        setInterval(nextSlide, 4000);
+
+    </script>
+</body>
+
+</html>

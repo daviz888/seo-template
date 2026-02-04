@@ -14,6 +14,79 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <!-- Custom Style -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Modal overlay */
+        .modal.hidden {
+            display: none;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            /* background: rgba(255, 255, 255, 0.12); */
+            background: var( --primary);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: #fff;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-close i {
+            pointer-events: none;
+        }
+
+        /* Modal fade/slide animation */
+        .modal {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close:hover {
+            color: #ff6b6b;
+        }
+    </style>
 </head>
 
 <body class="login-page">
@@ -39,7 +112,7 @@
                     <div
                         style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                         <label for="password" style="margin-bottom: 0;">Password</label>
-                        <a href="#" class="forgot-link">Forgot Password?</a>
+                        <a href="#" class="forgot-link" id="openForgotModal">Forgot Password?</a>
                     </div>
                     <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
@@ -61,6 +134,25 @@
             </div>
         </div>
     </div>
+    <!-- Forgot Password Modal -->
+    <div id="forgotModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeForgotModal" title="Close"><i class="fas fa-times"></i></button>
+            <h2 class="reset-title" id="modalTitle">Forgot Password?</h2>
+            <p class="reset-subtitle">Enter your email and we&apos;ll send a reset link.</p>
+            <form class="reset-form">
+                <div class="form-group">
+                    <label for="modal-email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="modal-email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <button type="submit" class="reset-btn">Send Reset Link</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         const passwordInput = document.getElementById('password');
@@ -79,6 +171,40 @@
         document.querySelector('.login-form').addEventListener('submit', (e) => {
             e.preventDefault();
             window.location.href = 'index.html';
+        });
+
+        // Modal open/close logic
+        const modal = document.getElementById('forgotModal');
+        const openBtn = document.getElementById('openForgotModal');
+        const closeBtn = document.getElementById('closeForgotModal');
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+            modal.classList.add('show');
+            document.getElementById('modal-email').focus();
+        });
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+            modal.classList.add('hidden');
+        });
+        // Close when clicking outside content
+        modal.querySelector('.modal-overlay').addEventListener('click', () => {
+            modal.classList.remove('show');
+            modal.classList.add('hidden');
+        });
+        // Modal form submit
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                modal.classList.remove('show');
+                modal.classList.add('hidden');
+            }
+        });
+        modal.querySelector('.reset-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('modal-email').value;
+            alert('If an account exists for ' + email + ', a reset link has been sent.');
+            modal.classList.add('hidden');
         });
     </script>
 </body>

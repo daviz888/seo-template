@@ -742,12 +742,36 @@ body {
     margin-top: 8px;
 }
 
+
 .login-btn:hover {
     background: var(--primary-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(15, 159, 160, 0.2);
 }
 
+.reset-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--text-main);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+    margin-top: 8px;
+}
+
+.reset-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-1px);;
+    box-shadow: 0 4px 12px rgba(15, 159, 160, 0.2);
+}
 .login-btn i {
     font-size: 0.9rem;
 }

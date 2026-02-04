@@ -18,19 +18,31 @@
 
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header header-inner">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <a href="launcher.html" class="logo">
                 <img src="assets/images/logo.png" alt="SEO Logo">
-                <span>SEO</span>
+                <span>SAES Education Outreach</span>
             </a>
-            <nav class="nav-links">
+            <!-- Desktop Navs -->
+            <nav class="nav-links desktop-nav">
                 <a href="#about" class="nav-link">About Mission</a>
                 <a href="#courses" class="nav-link">Course Catalog</a>
                 <a href="#benefits" class="nav-link">Learner Benefits</a>
                 <a href="login.html" class="btn-login">Admin Login</a>
             </nav>
-        </div>
+
+            <!-- Hamburger -->
+             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+             <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#about">About Mission</a>
+                <a href="#courses">Course Catalog</a>
+                <a href="#benefits">Learner Benefits</a>
+                <a href="login.html" class="mobile-login">Admin Login</a>
+            </div>
     </header>
 
     <!-- Hero Section -->
@@ -39,7 +51,7 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <h1>Empowering the <span>Next Generation</span> through Education</h1>
-                    <p>The SAES Education Outreach Program provides free, world-class learning opportunities for
+                    <p>The SAES Education Outreach Program provides world-class learning opportunities for
                         employees' dependents and community youth. Join us in building a brighter future.</p>
                     <a href="registration.html" class="btn-primary">
                         Register Now
@@ -218,7 +230,7 @@
                 style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px; margin-bottom: 40px;">
                 <div style="max-width: 300px;">
                     <a href="#" class="logo" style="margin-bottom: 24px;">
-                        <img src="assets/images/logo.png" alt="SEO Logo" style="filter: brightness(0) invert(1);">
+                        <img src="assets/images/logo.png" alt="SEO Logo">
                         <span style="color: white;">SEO</span>
                     </a>
                     <p style="color: rgba(255,255,255,0.6);">Empowering the Saudi Aramco community through innovative
@@ -259,6 +271,37 @@
     </button>
 
     <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.style.display === 'flex';
+
+            mobileMenu.style.display = isOpen ? 'none' : 'flex';
+
+            if (isOpen) {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Safety reset on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                mobileMenu.style.display = 'none';
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
         // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
